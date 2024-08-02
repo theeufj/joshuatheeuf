@@ -21,7 +21,7 @@ func main() {
 		http.ServeFile(w, r, "index.html")
 	})
 	http.HandleFunc("/send-email", handleSendEmail)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":80", nil)
 }
 
 func handleSendEmail(w http.ResponseWriter, r *http.Request) {
