@@ -5,6 +5,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"net/smtp"
 )
@@ -21,7 +22,10 @@ func main() {
 		http.ServeFile(w, r, "index.html")
 	})
 	http.HandleFunc("/send-email", handleSendEmail)
-	http.ListenAndServe(":80", nil)
+
+	if err := http.ListenAndServe(":80", nil); err != nil {
+		log.Fatalf("listenAndServe failed: %v", err)
+	}
 }
 
 func handleSendEmail(w http.ResponseWriter, r *http.Request) {
