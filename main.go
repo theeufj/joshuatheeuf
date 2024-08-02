@@ -16,7 +16,7 @@ type ContactForm struct {
 }
 
 func main() {
-	fmt.Println("Starting server on port 8080")
+	fmt.Println("Starting server on port 80")
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, "index.html")
 	})
